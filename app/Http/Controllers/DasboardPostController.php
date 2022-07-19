@@ -13,10 +13,12 @@ class DasboardPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return 'ini halaman dashboard';
-    }
 
+    {
+        return view ('dashboard.posts.index',[ 
+       'posts' => Post::where('user_id', auth()-> user()->id)-> get()
+    ]);
+   }
     /**
      * Show the form for creating a new resource.
      *
