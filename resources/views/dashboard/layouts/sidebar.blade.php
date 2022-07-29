@@ -8,8 +8,9 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link {{Request::is('dashboard/posts') ? 'active' : '' }}" href="/dashboard/posts">
-              <span data-feather="file-text" class="align-text-bottom"></span>
+            <a class="nav-link {{Request::is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/posts">
+              <span data-feather="file-text" class="align-text-bottom"></span> 
+              <!-- * diberi pada url post di gunakan untuk memberi tanda class aktif terus pada cabang post -->
               My Posts
             </a>
         </ul>
