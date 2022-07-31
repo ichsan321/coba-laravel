@@ -19,10 +19,11 @@ class LoginController extends Controller
     {
 
       $credentials = $request->validate([
-            'email'=> 'required|email:dns',
+            'email'=> 'required|email',
             'password'=> 'required'
 
         ]);
+        //remove dns sebelah email untuk validasi@gmail.com tidak ketat
 
 
         
