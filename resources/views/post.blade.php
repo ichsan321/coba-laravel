@@ -47,7 +47,7 @@
     <div class="card-body">
     <h5 class ="card-title">{{ "$posts->title"}}</h5>
     <p> <small class="text-muted"> By. <a href ="/post?author={{ $posts->author ->username }}" class="text-decoration-none">{{   $posts->author->name }} </a> {{ $posts-> created_at ->diffForHumans()}}</small></p>
-    <p class="{{ $posts->excerpt }}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="title"> {{ "$posts->excerpt" }} </p>
     <a href="/post/{{ $posts -> slug }}" class="btn btn-primary">Read More</a>
     </div>
     </div>
