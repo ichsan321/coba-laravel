@@ -13,7 +13,18 @@
 
         <p> <a href ="/post?author={{ $posts->author->username }}" class="text-decoration-none">{{ $posts ->author->name}} </a> in <a href ="/post?category={{$posts->category->slug}}" class="text-decoration-none">{{ $posts->category->name }}</a></p>
 
-        <img src="https://source.unsplash.com/1200x400?{{ $posts->category->name}}" alt="{{$posts->category->name}}" class="img-fluid">
+        @if($posts->image)
+
+<div style="max-height:350px; overflow:hidden">
+<img src="{{ asset('storage/' . $posts->image) }}" alt="{{$posts->category->name}}" class="img-fluid">
+       
+</div>
+
+@else
+        <img src="https://source.unsplash.com/1200x400?{{ $posts->category->name}}" alt="{{$posts->category->name}}" class="img-fluid mt-3">
+        
+  @endif
+
         <article class="my-3 fs-5">
         {!! $posts -> body!!} 
         </article>
