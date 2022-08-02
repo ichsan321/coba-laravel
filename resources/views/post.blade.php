@@ -26,6 +26,8 @@
 <div class="card mb-3">
 @if($post[0]->image)
 
+
+
 <div style="max-height:350px; overflow:hidden">
 <img src="{{ asset('storage/' . $post[0]->image) }}" alt="{{$post[0]->category->name}}" class="img-fluid">
         

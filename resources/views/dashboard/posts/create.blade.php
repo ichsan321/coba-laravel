@@ -47,30 +47,28 @@
 
 <div class="mb-3">
   <label for="image" class="form-label">Post Image</label>
-  <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
+  <img class="img-preview img-fluid mb-3 col-sm-5">
+  <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
   
-  @error ('image')
-           <div class ="invalid-feedback">
-            {{ $message }}
-           </div>
-           @enderror
-
+    @error ('image')
+      <div class ="invalid-feedback">
+        {{ $message }}
+      </div>
+    @enderror
 </div>
 
 <div class="mb-3">
-           <label for="body" class="form-label">Body</label>
+    <label for="body" class="form-label">Body</label>
 
-           @error('body')
-           <p class="text-danger"> {{ $message }}</p>
-           @enderror
-
-           <input id="body" type="hidden" name="body" value ="{{ old ('body') }}">
+   @error('body')
+      <p class="text-danger"> {{ $message }}</p>
+   @enderror
+      <input id="body" type="hidden" name="body" value ="{{ old ('body') }}">
   <trix-editor input="body"></trix-editor>
 
 </div>
-
-         <button type="submit" class="btn btn-primary">Create Post</button>
-       </form>
+ <button type="submit" class="btn btn-primary">Create Post</button>
+   </form>
 
    </div>     
 
@@ -87,6 +85,24 @@
     document.addEventListener('trix-file-accept', function(e){
     e.preventDefault();
    })
+
+  function previewImage(){
+
+   const image = document.querySelector('#image');
+   const imgPreview= document.querySelector('.img-preview');
+
+   imgPreview.style.display ='block';
+
+  //  const oFReader = new FileReader();
+  //  ofReader.readAsDataURL(image.files[0]);
+
+  //   oFReader.onload = function(oFREvent){
+  //   imgPreview.src = oFREvent.target.result;
+  //  }
+  const blob = URL.createObjectURL(image.files[0]);
+  imgPreview.src = blob;
+
+   }
    </script>
 
    
