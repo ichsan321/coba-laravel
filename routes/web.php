@@ -8,6 +8,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DasboardPostController;
+use App\Http\Controllers\AdminCategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +72,8 @@ Route::get('/dashboard/posts/checkSlug', [DasboardPostController::class, 'checkS
 ->middleware('auth');
 
 Route::resource('dashboard/posts', DasboardPostController::class)->middleware('auth');
+
+Route::resource('dashboard/categories', AdminCategoryController::class)->except('show');
 
 // Route::get('/categories/{category:slug}', function (Category $category){
 //     return view ('post', [
